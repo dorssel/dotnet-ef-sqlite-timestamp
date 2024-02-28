@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2024 Frans van Dorsselaer
+#
+# SPDX-License-Identifier: MIT
+
+# default: normalize EOL
+* text=auto
+
+.gitattributes   text
+.gitignore       text
+.editorconfig    text
+
+*.txt       text
+*.md        text
+*.license   text
+*.json      text
+*.yml       text
+*.config    text
+
+*.sln      text
+*.csproj   text
+*.cs       text eol=crlf
+*.props    text

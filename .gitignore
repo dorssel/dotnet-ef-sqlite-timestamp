@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Frans van Dorsselaer
+#
+# SPDX-License-Identifier: MIT
+
+bin/
+obj/
+packages/
+.vs/
+.vscode/
+*.user
+launchSettings.json
