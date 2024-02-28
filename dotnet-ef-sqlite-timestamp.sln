@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqliteTimestamp", "SqliteTimestamp\SqliteTimestamp.csproj", "{C93020A8-CDC6-4B9B-877B-5786F44CC1AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example", "Example\Example.csproj", "{780D7D60-C59A-4816-BA69-873AEFEB28C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{21BF017F-9290-42A1-8553-24BF4F84C55A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.mega-linter.yml = .mega-linter.yml
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		GitVersion.yml = GitVersion.yml
+		global.json = global.json
+		nuget.config = nuget.config
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C93020A8-CDC6-4B9B-877B-5786F44CC1AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C93020A8-CDC6-4B9B-877B-5786F44CC1AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C93020A8-CDC6-4B9B-877B-5786F44CC1AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C93020A8-CDC6-4B9B-877B-5786F44CC1AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{780D7D60-C59A-4816-BA69-873AEFEB28C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{780D7D60-C59A-4816-BA69-873AEFEB28C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{780D7D60-C59A-4816-BA69-873AEFEB28C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{780D7D60-C59A-4816-BA69-873AEFEB28C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB0E1ABC-1DEA-4117-AC69-FE266EA2EAA9}
+	EndGlobalSection
+EndGlobal

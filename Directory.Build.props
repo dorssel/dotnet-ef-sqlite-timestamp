@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: 2024 Frans van Dorsselaer
+
+SPDX-License-Identifier: MIT
+-->
+<Project>
+
+  <PropertyGroup>
+    <!-- Use the latest .NET SDK -->
+    <TargetFrameworks>net8.0</TargetFrameworks>
+
+    <!-- Use the latest C# Language standard -->
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Be very strict -->
+    <WarningLevel>9999</WarningLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-all</AnalysisLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CheckForOverflowUnderflow Condition="'$(Configuration)' == 'Debug'">true</CheckForOverflowUnderflow>
+
+    <!-- Common defaults -->
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <SelfContained>false</SelfContained>
+    <IsPackable>false</IsPackable>
+    <IsPublishable>false</IsPublishable>
+    <IsTrimmable Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net6.0'))">true</IsTrimmable>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\strongname.snk</AssemblyOriginatorKeyFile>
+
+    <!-- Assembly metadata -->
+    <Product>dotnet-ef-sqlite-timestamp</Product>
+    <Company>Frans van Dorsselaer</Company>
+    <Copyright>Copyright (C) $([System.DateTime]::UtcNow.ToString("yyyy"))  $(Company)</Copyright>
+
+    <!-- NuGet metadata -->
+    <Title>$(Product)</Title>
+    <Authors>$(Company)</Authors>
+    <Description>Adds SQLite support for [Timestamp] row versioning.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/dorssel/dotnet-ef-sqlite-timestamp</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <UseFullSemVerForNuGet>false</UseFullSemVerForNuGet>
+
+    <!-- SourceLink -->
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<!--
+    <PackageReference Include="GitVersion.MsBuild" PrivateAssets="all" />
+	-->
+  </ItemGroup>
+
+</Project>
