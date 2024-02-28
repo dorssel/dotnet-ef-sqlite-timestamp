@@ -9,11 +9,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Dorssel.EntityFrameworkCore.Migrations;
 
+/// <inheritdoc />
 public class SqliteTimestampMigrationsSqlGenerator(MigrationsSqlGeneratorDependencies dependencies, IRelationalAnnotationProvider relationalAnnotationProvider)
     : SqliteMigrationsSqlGenerator(dependencies, relationalAnnotationProvider)
 {
     sealed record TableSchema(string TableName, string? Schema);
 
+    /// <inheritdoc />
     public override IReadOnlyList<MigrationCommand> Generate(IReadOnlyList<MigrationOperation> operations, IModel? model, MigrationsSqlGenerationOptions options)
     {
         ArgumentNullException.ThrowIfNull(operations);

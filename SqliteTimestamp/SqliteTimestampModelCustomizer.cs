@@ -10,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Dorssel.EntityFrameworkCore.Infrastructure;
 
+/// <inheritdoc />
 public class SqliteTimestampModelCustomizer(ModelCustomizerDependencies dependencies)
     : RelationalModelCustomizer(dependencies)
 {
+    /// <inheritdoc />
     public override void Customize(ModelBuilder modelBuilder, DbContext context)
     {
         ArgumentNullException.ThrowIfNull(modelBuilder);
