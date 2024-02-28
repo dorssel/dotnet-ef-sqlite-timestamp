@@ -9,6 +9,8 @@
 .gitignore       text
 .editorconfig    text
 
+dep5   text
+
 *.txt       text
 *.md        text
 *.license   text
