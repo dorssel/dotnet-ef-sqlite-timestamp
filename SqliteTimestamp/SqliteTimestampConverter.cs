@@ -7,9 +7,13 @@ using System.Buffers.Binary;
 
 namespace Dorssel.EntityFrameworkCore.Storage.ValueConversion;
 
+/// <inheritdoc />
 public sealed class TimestampToLongConverter : ValueConverter<byte[], long>
 {
-    public readonly static TimestampToLongConverter Singleton = new();
+    /// <summary>
+    /// The singeleton instance of this class.
+    /// </summary>
+    public static readonly TimestampToLongConverter Singleton = new();
 
     TimestampToLongConverter()
         : base(v => BinaryPrimitives.ReadInt64BigEndian(v), (v) => ToByteArray(v))

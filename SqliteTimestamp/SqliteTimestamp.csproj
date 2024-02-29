@@ -9,7 +9,18 @@ SPDX-License-Identifier: MIT
   <PropertyGroup>
     <RootNamespace>Dorssel.EntityFrameworkCore</RootNamespace>
     <AssemblyName>Dorssel.EntityFrameworkCore.Sqlite.Timestamp</AssemblyName>
+
+    <IsPackable>true</IsPackable>
+    <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageId>Dorssel.EntityFrameworkCore.Sqlite.Timestamp</PackageId>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="" Visible="false" />
+    <None Include="..\README.md" Pack="true" PackagePath="" Visible="false" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
@@ -17,6 +28,7 @@ SPDX-License-Identifier: MIT
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
