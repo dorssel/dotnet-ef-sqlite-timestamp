@@ -2,9 +2,9 @@
 //
 // SPDX-License-Identifier: MIT
 
+using System.ComponentModel.DataAnnotations;
 using Dorssel.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
 
 namespace Example;
 
