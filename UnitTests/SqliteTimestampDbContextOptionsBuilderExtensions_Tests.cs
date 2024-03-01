@@ -7,18 +7,17 @@ namespace UnitTests;
 [TestClass]
 sealed class SqliteTimestampDbContextOptionsBuilderExtensions_Tests
 {
-    sealed class TestDbContext : DbContext
-    {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder
-                .UseSqliteTimestamp();
-        }
-    }
-
     [TestMethod]
     public void UseSqliteTimestamp()
     {
-        using var db = new TestDbContext();
+        var builder = new DbContextOptionsBuilder();
+        builder.UseSqliteTimestamp();
+    }
+
+    [TestMethod]
+    public void UseSqliteTimestamp_Generic()
+    {
+        var builder = new DbContextOptionsBuilder<DbContext>();
+        builder.UseSqliteTimestamp();
     }
 }
