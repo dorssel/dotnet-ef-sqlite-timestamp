@@ -17,4 +17,24 @@ sealed class SqliteTimestampModelCustomizer_Tests
 
         Assert.AreEqual(typeof(long), RowVersion.GetProviderClrType());
     }
+
+    sealed class NonSqliteDbContext : DbContext
+    {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder
+                .UseInMemoryDatabase("Test")
+                .UseSqliteTimestamp();
+        }
+    }
+
+    [TestMethod]
+    public void SqliteTimestampModelCustomizer_NonSqliteThrows()
+    {
+        Assert.ThrowsException<InvalidOperationException>(() =>
+        {
+            using var db = new NonSqliteDbContext();
+            _ = db.Model;
+        });
+    }
 }
