@@ -2,8 +2,8 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System.Buffers.Binary;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Dorssel.EntityFrameworkCore.Storage.ValueConversion;
 
