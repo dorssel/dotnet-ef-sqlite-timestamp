@@ -32,16 +32,19 @@ public class SqliteTimestampMigrationsSqlGenerator(MigrationsSqlGeneratorDepende
         {
             switch (operation)
             {
-                case TableOperation tableOperation:
-                    if (operation is RenameTableOperation renameTableOperation)
-                    {
-                        tablesAffected.Add(new(renameTableOperation.NewName ?? renameTableOperation.Name, renameTableOperation.NewSchema));
-                    }
-                    tablesAffected.Add(new(tableOperation.Name, tableOperation.Schema));
+                case CreateTableOperation createTableOperation:
+                    tablesAffected.Add(new(createTableOperation.Name, createTableOperation.Schema));
                     break;
-
-                case ColumnOperation columnOperation:
-                    tablesAffected.Add(new(columnOperation.Table, columnOperation.Schema));
+                case AlterTableOperation alterTableOperation:
+                    tablesAffected.Add(new(alterTableOperation.Name, alterTableOperation.Schema));
+                    tablesAffected.Add(new(alterTableOperation.OldTable.Name, alterTableOperation.OldTable.Schema));
+                    break;
+                case RenameTableOperation renameTableOperation:
+                    tablesAffected.Add(new(renameTableOperation.NewName ?? renameTableOperation.Name, renameTableOperation.NewSchema));
+                    tablesAffected.Add(new(renameTableOperation.Name, renameTableOperation.Schema));
+                    break;
+                case DropTableOperation dropTableOperation:
+                    tablesAffected.Add(new(dropTableOperation.Name, dropTableOperation.Schema));
                     break;
             }
         }
