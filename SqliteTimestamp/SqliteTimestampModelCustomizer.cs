@@ -37,7 +37,7 @@ public class SqliteTimestampModelCustomizer(ModelCustomizerDependencies dependen
                 // No [Timestamp] column found.
                 continue;
             }
-            property.SetColumnType("INTEGER");
+            property.SetProviderClrType(typeof(long));
             property.SetDefaultValueSql("0");
             property.SetValueConverter(TimestampToLongConverter.Singleton);
             property.SetValueComparer(new ArrayStructuralComparer<byte>());
