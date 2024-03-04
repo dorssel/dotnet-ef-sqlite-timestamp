@@ -56,7 +56,7 @@ public class SqliteTimestampMigrationsSqlGenerator(MigrationsSqlGeneratorDepende
             {
                 Sql = $"DROP TRIGGER IF EXISTS {delimitedTriggerName};"
             });
-            if (model.GetEntityTypes().SingleOrDefault(et => et.GetTableName() == affected.TableName && et.GetSchema() == affected.Schema) is not IEntityType entityType)
+            if (model.GetEntityTypes().FirstOrDefault(et => et.GetTableName() == affected.TableName && et.GetSchema() == affected.Schema) is not IEntityType entityType)
             {
                 // Table not found; assume it was dropped.
                 continue;
