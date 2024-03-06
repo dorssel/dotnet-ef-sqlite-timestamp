@@ -18,6 +18,19 @@ sealed class SqliteTimestampModelCustomizer_Tests
         Assert.AreEqual(typeof(long), RowVersion.GetProviderClrType());
     }
 
+    [TestMethod]
+    public void SqliteTimestampModelCustomizer__MultipleRowVersionsSupported()
+    {
+        using var db = new MultipleRowVersionsDbContext();
+
+        var TestTable = db.Model.FindEntityType(MemoryDbContext.TestTableName)!;
+        var RowVersion = TestTable.FindProperty(MemoryDbContext.RowVersionName)!;
+        var SecondRowVersion = TestTable.FindProperty(MultipleRowVersionsDbContext.SecondRowVersionName)!;
+
+        Assert.AreEqual(typeof(long), RowVersion.GetProviderClrType());
+        Assert.AreEqual(typeof(long), SecondRowVersion.GetProviderClrType());
+    }
+
     sealed class NonSqliteDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

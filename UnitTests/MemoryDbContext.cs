@@ -4,7 +4,7 @@
 
 namespace UnitTests;
 
-sealed class MemoryDbContext : DbContext
+class MemoryDbContext : DbContext
 {
     public const string TestTableName = "TestTable";
     public const string IdName = "Id";
