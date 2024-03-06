@@ -56,18 +56,29 @@ public class SqliteTimestampMigrationsSqlGenerator(MigrationsSqlGeneratorDepende
             {
                 Sql = $"DROP TRIGGER IF EXISTS {delimitedTriggerName};"
             });
-            if (model.GetEntityTypes().FirstOrDefault(et => et.GetTableName() == affected.TableName && et.GetSchema() == affected.Schema) is not IEntityType entityType)
+            //
+            // Table per Hierarchy (TPH) requires checking all entity types that map to the same table.
+            // Some may have an explicit [Timestamp] property, others may not; we need to consider them all.
+            // However, if multiple entity types have a [Timestamp] property, then those must all map to the
+            // same column.
+            // SQL Server (as do we) only supports one row version column per table, see
+            // https://learn.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql?view=sql-server-ver16
+            //
+            var columnNames = model.GetEntityTypes().Where(et => et.GetTableName() == affected.TableName && et.GetSchema() == affected.Schema)
+                .SelectMany(et => et.GetProperties()).Where(p => p.IsConcurrencyToken && p.ValueGenerated == ValueGenerated.OnAddOrUpdate)
+                .Select(p => p.Name).Distinct().ToArray();
+            switch (columnNames.Length)
             {
-                // Table not found; assume it was dropped.
-                continue;
-            }
-            if (entityType.GetProperties().SingleOrDefault(p => p.IsConcurrencyToken && p.ValueGenerated == ValueGenerated.OnAddOrUpdate) is not IProperty property)
-            {
-                // No [Timestamp] column found.
-                continue;
+                case 0:
+                    // Table not found (dropped), or it does not (any longer) contain a [Timestamp] column.
+                    continue;
+                default:
+                    throw new InvalidOperationException("Only one row version column per table is supported.");
+                case 1:
+                    break;
             }
             var delimitedTableName = Dependencies.SqlGenerationHelper.DelimitIdentifier(affected.TableName);
-            var delimitedColumnName = Dependencies.SqlGenerationHelper.DelimitIdentifier(property.Name);
+            var delimitedColumnName = Dependencies.SqlGenerationHelper.DelimitIdentifier(columnNames[0]);
             augmentedOperations.Add(new SqlOperation()
             {
                 Sql = $"""
