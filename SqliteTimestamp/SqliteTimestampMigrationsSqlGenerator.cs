@@ -57,22 +57,25 @@ public class SqliteTimestampMigrationsSqlGenerator(MigrationsSqlGeneratorDepende
                 Sql = $"DROP TRIGGER IF EXISTS {delimitedTriggerName};"
             });
             //
-            // Table per Hierarchy (TPH) requires checking all entity types that map to the same table.
-            // Some may have an explicit [Timestamp] property, others may not; we need to consider them all.
-            // However, if multiple entity types have a [Timestamp] property, then those must all map to the
-            // same column.
-            // SQL Server (as do we) only supports one row version column per table, see
-            // https://learn.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql?view=sql-server-ver16
+            // In order to support both Table Splitting and Entity Splitting, we have to consider all
+            // properties of all entity types. Of all the [Timestamp] properties that map to our affected table,
+            // we find the distinct column names.
             //
-            var columnNames = model.GetEntityTypes().Where(et => et.GetTableName() == affected.TableName && et.GetSchema() == affected.Schema)
-                .SelectMany(et => et.GetProperties()).Where(p => p.IsConcurrencyToken && p.ValueGenerated == ValueGenerated.OnAddOrUpdate)
-                .Select(p => p.Name).Distinct().ToArray();
+            // See https://learn.microsoft.com/en-us/ef/core/modeling/table-splitting
+            //
+            var columnNames = model.GetEntityTypes().SelectMany(et => et.GetProperties())
+                .Where(p => p.ClrType == typeof(byte[]) && p.IsConcurrencyToken && p.ValueGenerated == ValueGenerated.OnAddOrUpdate)
+                .SelectMany(p => p.GetTableColumnMappings()).Select(cm => cm.Column)
+                .Where(c => c.Table.Name == affected.TableName && c.Table.Schema == affected.Schema)
+                .Select(c => c.Name).Distinct().ToArray();
             switch (columnNames.Length)
             {
                 case 0:
                     // Table not found (dropped), or it does not (any longer) contain a [Timestamp] column.
                     continue;
                 default:
+                    // SQL Server (as do we) only supports one row version column per table, see
+                    //    https://learn.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql
                     throw new InvalidOperationException("Only one row version column per table is supported.");
                 case 1:
                     break;
