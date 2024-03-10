@@ -56,18 +56,32 @@ public class SqliteTimestampMigrationsSqlGenerator(MigrationsSqlGeneratorDepende
             {
                 Sql = $"DROP TRIGGER IF EXISTS {delimitedTriggerName};"
             });
-            if (model.GetEntityTypes().SingleOrDefault(et => et.GetTableName() == affected.TableName && et.GetSchema() == affected.Schema) is not IEntityType entityType)
+            //
+            // In order to support both Table Splitting and Entity Splitting, we have to consider all
+            // properties of all entity types. Of all the [Timestamp] properties that map to our affected table,
+            // we find the distinct column names.
+            //
+            // See https://learn.microsoft.com/en-us/ef/core/modeling/table-splitting
+            //
+            var columnNames = model.GetEntityTypes().SelectMany(et => et.GetProperties())
+                .Where(p => p.ClrType == typeof(byte[]) && p.IsConcurrencyToken && p.ValueGenerated == ValueGenerated.OnAddOrUpdate)
+                .SelectMany(p => p.GetTableColumnMappings()).Select(cm => cm.Column)
+                .Where(c => c.Table.Name == affected.TableName && c.Table.Schema == affected.Schema)
+                .Select(c => c.Name).Distinct().ToArray();
+            switch (columnNames.Length)
             {
-                // Table not found; assume it was dropped.
-                continue;
-            }
-            if (entityType.GetProperties().SingleOrDefault(p => p.IsConcurrencyToken && p.ValueGenerated == ValueGenerated.OnAddOrUpdate) is not IProperty property)
-            {
-                // No [Timestamp] column found.
-                continue;
+                case 0:
+                    // Table not found (dropped), or it does not (any longer) contain a [Timestamp] column.
+                    continue;
+                default:
+                    // SQL Server (as do we) only supports one row version column per table, see
+                    //    https://learn.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql
+                    throw new InvalidOperationException("Only one row version column per table is supported.");
+                case 1:
+                    break;
             }
             var delimitedTableName = Dependencies.SqlGenerationHelper.DelimitIdentifier(affected.TableName);
-            var delimitedColumnName = Dependencies.SqlGenerationHelper.DelimitIdentifier(property.Name);
+            var delimitedColumnName = Dependencies.SqlGenerationHelper.DelimitIdentifier(columnNames[0]);
             augmentedOperations.Add(new SqlOperation()
             {
                 Sql = $"""

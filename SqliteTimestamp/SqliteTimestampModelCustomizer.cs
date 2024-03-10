@@ -31,16 +31,20 @@ public class SqliteTimestampModelCustomizer(ModelCustomizerDependencies dependen
         // After all modeling is done, we need to fix-up the tables that contain a [Timestamp].
         foreach (var entityType in modelBuilder.Model.GetEntityTypes())
         {
-            if (entityType.GetProperties().SingleOrDefault(p => p.ClrType == typeof(byte[]) && p.IsConcurrencyToken
-                && p.ValueGenerated == ValueGenerated.OnAddOrUpdate) is not IMutableProperty property)
+            var properties = entityType.GetProperties().Where(p => p.ClrType == typeof(byte[])
+                && p.IsConcurrencyToken && p.ValueGenerated == ValueGenerated.OnAddOrUpdate).ToArray();
+            if (properties.Length == 0)
             {
-                // No [Timestamp] column found.
+                // No [Timestamp] column(s) found.
                 continue;
             }
-            property.SetProviderClrType(typeof(long));
-            property.SetDefaultValueSql("0");
-            property.SetValueConverter(TimestampToLongConverter.Singleton);
-            property.SetValueComparer(new ArrayStructuralComparer<byte>());
+            foreach (var property in properties)
+            {
+                property.SetProviderClrType(typeof(long));
+                property.SetDefaultValueSql("0");
+                property.SetValueConverter(TimestampToLongConverter.Singleton);
+                property.SetValueComparer(new ArrayStructuralComparer<byte>());
+            }
             entityType.UseSqlReturningClause(false);
         }
     }

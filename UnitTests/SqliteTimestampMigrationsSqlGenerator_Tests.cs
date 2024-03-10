@@ -100,4 +100,21 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
 
         _ = generator.Generate([]);
     }
+
+    [TestMethod]
+    public void SqliteTimestampMigrationsSqlGenerator_MultipleRowVersionsThrows()
+    {
+        using var db = new MultipleRowVersionsDbContext();
+        var generator = db.GetService<IMigrationsSqlGenerator>();
+        var designTimeModel = db.GetService<IDesignTimeModel>();
+        var operations = new List<MigrationOperation>
+        {
+            new AlterTableOperation() { Name = MemoryDbContext.TestTableName }
+        };
+
+        Assert.ThrowsException<InvalidOperationException>(() =>
+        {
+            _ = generator.Generate(operations, designTimeModel.Model);
+        });
+    }
 }
