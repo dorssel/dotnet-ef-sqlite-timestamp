@@ -21,9 +21,10 @@ updates:
     schedule:
       interval: 'daily'
     groups:
-      mstest:
+      'MSTest':
         patterns:
           - 'MSTest.*'
-      ef:
+      'Entity Framework':
         patterns:
           - 'Microsoft.EntityFrameworkCore*'
+          - 'dotnet-ef'
