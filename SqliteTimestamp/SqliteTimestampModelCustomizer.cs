@@ -6,6 +6,7 @@ using Dorssel.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Dorssel.EntityFrameworkCore.Infrastructure;
 
@@ -30,7 +31,9 @@ public class SqliteTimestampModelCustomizer(ModelCustomizerDependencies dependen
         // After all modeling is done, we need to fix-up the tables that contain a [Timestamp].
         foreach (var entityType in modelBuilder.Model.GetEntityTypes())
         {
-            var properties = entityType.GetProperties().Where(p => p.IsSqliteTimestamp()).ToArray();
+            var properties = entityType.GetProperties()
+                .Where(p => (p.ClrType == typeof(byte[])) && p.IsConcurrencyToken && (p.ValueGenerated == ValueGenerated.OnAddOrUpdate))
+                .ToArray();
             if (properties.Length == 0)
             {
                 // No [Timestamp] column(s) found.

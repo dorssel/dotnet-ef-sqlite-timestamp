@@ -93,6 +93,70 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
     }
 
     [TestMethod]
+    public void SqliteTimestampMigrationsSqlGenerator_AddColumn()
+    {
+        using var db = new MemoryDbContext();
+        var generator = db.GetService<IMigrationsSqlGenerator>();
+        var designTimeModel = db.GetService<IDesignTimeModel>();
+        var operations = new List<MigrationOperation>
+        {
+            new AddColumnOperation() { Table = MemoryDbContext.TestTableName, Name = "NewColumn" }
+        };
+
+        var result = generator.Generate(operations, designTimeModel.Model);
+
+        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+    }
+
+    [TestMethod]
+    public void SqliteTimestampMigrationsSqlGenerator_AlterColumn()
+    {
+        using var db = new MemoryDbContext();
+        var generator = db.GetService<IMigrationsSqlGenerator>();
+        var designTimeModel = db.GetService<IDesignTimeModel>();
+        var operations = new List<MigrationOperation>
+        {
+            new AlterColumnOperation() { Table = MemoryDbContext.TestTableName, Name = MemoryDbContext.RowVersionName }
+        };
+
+        var result = generator.Generate(operations, designTimeModel.Model);
+
+        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+    }
+
+    [TestMethod]
+    public void SqliteTimestampMigrationsSqlGenerator_RenameColumn()
+    {
+        using var db = new MemoryDbContext();
+        var generator = db.GetService<IMigrationsSqlGenerator>();
+        var designTimeModel = db.GetService<IDesignTimeModel>();
+        var operations = new List<MigrationOperation>
+        {
+            new RenameColumnOperation() { Table = MemoryDbContext.TestTableName, Name = MemoryDbContext.RowVersionName, NewName = "NewRowVersion" }
+        };
+
+        var result = generator.Generate(operations, designTimeModel.Model);
+
+        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+    }
+
+    [TestMethod]
+    public void SqliteTimestampMigrationsSqlGenerator_DropColumn()
+    {
+        using var db = new MemoryDbContext();
+        var generator = db.GetService<IMigrationsSqlGenerator>();
+        var designTimeModel = db.GetService<IDesignTimeModel>();
+        var operations = new List<MigrationOperation>
+        {
+            new DropColumnOperation() { Table = MemoryDbContext.TestTableName }
+        };
+
+        var result = generator.Generate(operations, designTimeModel.Model);
+
+        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+    }
+
+    [TestMethod]
     public void SqliteTimestampMigrationsSqlGenerator_NullModelNoThrow()
     {
         using var db = new MemoryDbContext();
