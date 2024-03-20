@@ -46,6 +46,19 @@ public class SqliteTimestampMigrationsSqlGenerator(MigrationsSqlGeneratorDepende
                 case DropTableOperation dropTableOperation:
                     tablesAffected.Add(new(dropTableOperation.Name, dropTableOperation.Schema));
                     break;
+
+                case AddColumnOperation addColumnOperation:
+                    tablesAffected.Add(new(addColumnOperation.Table, addColumnOperation.Schema));
+                    break;
+                case AlterColumnOperation alterColumnOperation:
+                    tablesAffected.Add(new(alterColumnOperation.Table, alterColumnOperation.Schema));
+                    break;
+                case RenameColumnOperation renameColumnOperation:
+                    tablesAffected.Add(new(renameColumnOperation.Table, renameColumnOperation.Schema));
+                    break;
+                case DropColumnOperation dropColumnOperation:
+                    tablesAffected.Add(new(dropColumnOperation.Table, dropColumnOperation.Schema));
+                    break;
             }
         }
 
@@ -64,7 +77,7 @@ public class SqliteTimestampMigrationsSqlGenerator(MigrationsSqlGeneratorDepende
             // See https://learn.microsoft.com/en-us/ef/core/modeling/table-splitting
             //
             var columnNames = model.GetEntityTypes().SelectMany(et => et.GetProperties())
-                .Where(p => p.IsSqliteTimestamp())
+                .Where(p => p.IsConcurrencyToken && (p.ValueGenerated == ValueGenerated.OnAddOrUpdate))
                 .SelectMany(p => p.GetTableColumnMappings()).Select(cm => cm.Column)
                 .Where(c => c.Table.Name == affected.TableName && c.Table.Schema == affected.Schema)
                 .Select(c => c.Name).Distinct().ToArray();
