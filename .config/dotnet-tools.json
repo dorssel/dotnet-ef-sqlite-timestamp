@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json.schemastore.org/dotnet-tools.json",
   "version": 1,
   "isRoot": true,
   "tools": {
