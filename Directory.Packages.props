@@ -9,15 +9,15 @@ SPDX-License-Identifier: MIT
     <!-- all -->
     <PackageVersion Include="GitVersion.MsBuild" Version="5.12.0" />
     <!-- SqliteTimestamp -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.4" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.5" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
     <!-- unit tests -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.4" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.5" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
     <PackageVersion Include="MSTest.TestAdapter" Version="3.3.1" />
     <PackageVersion Include="MSTest.TestFramework" Version="3.3.1" />
     <PackageVersion Include="coverlet.collector" Version="6.0.2" />
     <!-- Example -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5" />
   </ItemGroup>
 </Project>
