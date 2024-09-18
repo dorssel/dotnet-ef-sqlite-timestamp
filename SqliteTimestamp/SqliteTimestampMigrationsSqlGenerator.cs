@@ -65,9 +65,14 @@ public class SqliteTimestampMigrationsSqlGenerator(MigrationsSqlGeneratorDepende
         foreach (var affected in tablesAffected)
         {
             var delimitedTriggerName = Dependencies.SqlGenerationHelper.DelimitIdentifier(affected.TableName + "_TimestampUpdater", affected.Schema);
+            var delimitedInsertTriggerName = Dependencies.SqlGenerationHelper.DelimitIdentifier(affected.TableName + "_TimestampInsertUpdater", affected.Schema);
             augmentedOperations.Add(new SqlOperation()
             {
                 Sql = $"DROP TRIGGER IF EXISTS {delimitedTriggerName};"
+            });
+            augmentedOperations.Add(new SqlOperation()
+            {
+                Sql = $"DROP TRIGGER IF EXISTS {delimitedInsertTriggerName};"
             });
             //
             // In order to support both Table Splitting and Entity Splitting, we have to consider all
@@ -106,6 +111,19 @@ public class SqliteTimestampMigrationsSqlGenerator(MigrationsSqlGeneratorDepende
                     END;
                     """
             });
+
+            augmentedOperations.Add(new SqlOperation
+            {
+                Sql = $"""
+                    CREATE TRIGGER {delimitedInsertTriggerName} AFTER INSERT ON {delimitedTableName}
+                    BEGIN
+                        UPDATE {delimitedTableName}
+                        SET {delimitedColumnName} = (SELECT MAX({delimitedColumnName}) FROM {delimitedTableName})
+                        WHERE rowid = NEW.rowid;
+                    END;
+                    """
+            }
+            );
         }
 
         return base.Generate(augmentedOperations, model, options);
