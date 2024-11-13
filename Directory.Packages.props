@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT
 <Project>
   <ItemGroup>
     <!-- all -->
-    <PackageVersion Include="GitVersion.MsBuild" Version="6.0.4" />
+    <PackageVersion Include="GitVersion.MsBuild" Version="6.0.5" />
     <!-- SqliteTimestamp -->
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.10" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
