@@ -10,8 +10,8 @@ namespace Example;
 
 sealed class BloggingContext : DbContext
 {
-    public DbSet<Blog> Blogs { get; set; }
-    public DbSet<Post> Posts { get; set; }
+    public DbSet<Blog> Blogs { get; set; } = null!;
+    public DbSet<Post> Posts { get; set; } = null!;
 
     public string DbPath { get; }
 
@@ -24,7 +24,7 @@ sealed class BloggingContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder
+        _ = optionsBuilder
             .UseSqlite($"Data Source={DbPath}")
             .UseSqliteTimestamp();   // <<<<<<<<<< Add this line ...
     }

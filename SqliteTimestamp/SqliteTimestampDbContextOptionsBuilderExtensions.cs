@@ -20,8 +20,8 @@ public static class SqliteTimestampDbContextOptionsBuilderExtensions
     {
         ArgumentNullException.ThrowIfNull(optionsBuilder);
 
-        optionsBuilder.ReplaceService<IMigrationsSqlGenerator, SqliteTimestampMigrationsSqlGenerator>();
-        optionsBuilder.ReplaceService<IModelCustomizer, SqliteTimestampModelCustomizer>();
+        _ = optionsBuilder.ReplaceService<IMigrationsSqlGenerator, SqliteTimestampMigrationsSqlGenerator>();
+        _ = optionsBuilder.ReplaceService<IModelCustomizer, SqliteTimestampModelCustomizer>();
         return optionsBuilder;
     }
 

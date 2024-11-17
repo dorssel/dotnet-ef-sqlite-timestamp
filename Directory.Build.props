@@ -11,7 +11,7 @@ SPDX-License-Identifier: MIT
     <TargetFrameworks>net8.0</TargetFrameworks>
 
     <!-- Use the latest C# Language standard -->
-    <LangVersion>12.0</LangVersion>
+    <LangVersion>13.0</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 
@@ -31,6 +31,10 @@ SPDX-License-Identifier: MIT
     <IsPublishable>false</IsPublishable>
     <IsTrimmable>true</IsTrimmable>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\strongname.snk</AssemblyOriginatorKeyFile>
+    <!--
+    See https://github.com/dotnet/roslyn/issues/41640
+    -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <!-- Assembly metadata -->
     <Product>dotnet-ef-sqlite-timestamp</Product>
@@ -42,14 +46,10 @@ SPDX-License-Identifier: MIT
     <Authors>$(Company)</Authors>
     <Description>Adds SQLite support for [Timestamp] row versioning.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/dorssel/dotnet-ef-sqlite-timestamp</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <UseFullSemVerForNuGet>false</UseFullSemVerForNuGet>
-
-    <!-- SourceLink -->
     <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
@@ -61,6 +61,7 @@ SPDX-License-Identifier: MIT
   <Target Name="SetPackageVersion" AfterTargets="GetVersion">
     <PropertyGroup>
       <PackageVersion>$(GitVersion_MajorMinorPatch)</PackageVersion>
+      <PackageVersion Condition=" '$(GitVersion_MajorMinorPatch)' == '' ">0.9.99</PackageVersion>
     </PropertyGroup>
   </Target>
   
