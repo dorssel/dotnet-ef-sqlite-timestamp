@@ -28,8 +28,9 @@ SPDX-License-Identifier: MIT
     <PackageReference Include="GitVersion.MsBuild" Version="6.0.5" PrivateAssets="all" />
   </ItemGroup>
 
-  <!-- Prevent dependabot from updating Microsoft.EntityFrameworkCore.Sqlite. -->
-  <Import Project="Downgrade.Sqlite.xml" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
+  </ItemGroup>
 
   <!-- Updates for transitive packages with vulnerabilities. -->
   <ItemGroup>
