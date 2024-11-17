@@ -22,3 +22,4 @@ dep5   text
 *.csproj   text
 *.cs       text eol=crlf
 *.props    text
+*.xml      text
