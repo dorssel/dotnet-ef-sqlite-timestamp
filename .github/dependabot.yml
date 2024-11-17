@@ -17,6 +17,12 @@ updates:
     schedule:
       interval: 'daily'
   - package-ecosystem: 'nuget'
+    directory: '/SqliteTimestamp'
+    schedule:
+      interval: 'daily'
+    ignore:
+      - dependency-name: 'Microsoft.EntityFrameworkCore.Sqlite'
+  - package-ecosystem: 'nuget'
     directory: '/'
     schedule:
       interval: 'daily'
