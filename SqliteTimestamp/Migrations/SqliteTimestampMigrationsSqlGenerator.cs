@@ -33,31 +33,33 @@ public class SqliteTimestampMigrationsSqlGenerator(MigrationsSqlGeneratorDepende
             switch (operation)
             {
                 case CreateTableOperation createTableOperation:
-                    tablesAffected.Add(new(createTableOperation.Name, createTableOperation.Schema));
+                    _ = tablesAffected.Add(new(createTableOperation.Name, createTableOperation.Schema));
                     break;
                 case AlterTableOperation alterTableOperation:
-                    tablesAffected.Add(new(alterTableOperation.Name, alterTableOperation.Schema));
-                    tablesAffected.Add(new(alterTableOperation.OldTable.Name, alterTableOperation.OldTable.Schema));
+                    _ = tablesAffected.Add(new(alterTableOperation.Name, alterTableOperation.Schema));
+                    _ = tablesAffected.Add(new(alterTableOperation.OldTable.Name, alterTableOperation.OldTable.Schema));
                     break;
                 case RenameTableOperation renameTableOperation:
-                    tablesAffected.Add(new(renameTableOperation.NewName ?? renameTableOperation.Name, renameTableOperation.NewSchema));
-                    tablesAffected.Add(new(renameTableOperation.Name, renameTableOperation.Schema));
+                    _ = tablesAffected.Add(new(renameTableOperation.NewName ?? renameTableOperation.Name, renameTableOperation.NewSchema));
+                    _ = tablesAffected.Add(new(renameTableOperation.Name, renameTableOperation.Schema));
                     break;
                 case DropTableOperation dropTableOperation:
-                    tablesAffected.Add(new(dropTableOperation.Name, dropTableOperation.Schema));
+                    _ = tablesAffected.Add(new(dropTableOperation.Name, dropTableOperation.Schema));
                     break;
 
                 case AddColumnOperation addColumnOperation:
-                    tablesAffected.Add(new(addColumnOperation.Table, addColumnOperation.Schema));
+                    _ = tablesAffected.Add(new(addColumnOperation.Table, addColumnOperation.Schema));
                     break;
                 case AlterColumnOperation alterColumnOperation:
-                    tablesAffected.Add(new(alterColumnOperation.Table, alterColumnOperation.Schema));
+                    _ = tablesAffected.Add(new(alterColumnOperation.Table, alterColumnOperation.Schema));
                     break;
                 case RenameColumnOperation renameColumnOperation:
-                    tablesAffected.Add(new(renameColumnOperation.Table, renameColumnOperation.Schema));
+                    _ = tablesAffected.Add(new(renameColumnOperation.Table, renameColumnOperation.Schema));
                     break;
                 case DropColumnOperation dropColumnOperation:
-                    tablesAffected.Add(new(dropColumnOperation.Table, dropColumnOperation.Schema));
+                    _ = tablesAffected.Add(new(dropColumnOperation.Table, dropColumnOperation.Schema));
+                    break;
+                default:
                     break;
             }
         }

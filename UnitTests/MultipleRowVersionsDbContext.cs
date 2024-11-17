@@ -12,9 +12,9 @@ sealed class MultipleRowVersionsDbContext : MemoryDbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity(TestTableName, b =>
+        _ = modelBuilder.Entity(TestTableName, b =>
         {
-            b.Property<byte[]>(SecondRowVersionName)
+            _ = b.Property<byte[]>(SecondRowVersionName)
                     .IsRowVersion();
         });
     }

@@ -176,7 +176,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
             new AlterTableOperation() { Name = MemoryDbContext.TestTableName }
         };
 
-        Assert.ThrowsException<InvalidOperationException>(() =>
+        _ = Assert.ThrowsException<InvalidOperationException>(() =>
         {
             _ = generator.Generate(operations, designTimeModel.Model);
         });
