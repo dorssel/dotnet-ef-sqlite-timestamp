@@ -23,7 +23,9 @@ updates:
     ignore:
       - dependency-name: 'Microsoft.EntityFrameworkCore.Sqlite'
   - package-ecosystem: 'nuget'
-    directory: '/'
+    directories:
+      - '/Example'
+      - '/UnitTests'
     schedule:
       interval: 'daily'
     groups:
