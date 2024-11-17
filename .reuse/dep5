@@ -3,6 +3,6 @@ Upstream-Name: dotnet-ef-sqlite-timestamp
 Upstream-Contact: Frans van Dorsselaer
 Source: https://github.com/dorssel/dotnet-ef-sqlite-timestamp
 
-Files: */Migrations/*
+Files: Example/Migrations/*
 Copyright: 2024 Frans van Dorsselaer
 License: MIT
