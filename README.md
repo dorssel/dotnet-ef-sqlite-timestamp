@@ -13,7 +13,7 @@ SPDX-License-Identifier: MIT
 [![REUSE status](https://api.reuse.software/badge/github.com/dorssel/dotnet-ef-sqlite-timestamp)](https://api.reuse.software/info/github.com/dorssel/dotnet-ef-sqlite-timestamp)
 [![NuGet](https://img.shields.io/nuget/v/Dorssel.EntityFrameworkCore.Sqlite.Timestamp?logo=nuget)](https://www.nuget.org/packages/Dorssel.EntityFrameworkCore.Sqlite.Timestamp)
 
-Extension for Entity Framework (EF) Core 8.0 that adds support for SQLite row versioning (`[Timestamp]` attribute).
+Extension for Entity Framework (EF) Core 8.0 (or higher) that adds support for SQLite row versioning (`[Timestamp]` attribute).
 
 The implementation is for AnyCPU, and works on all platforms.
 
@@ -39,7 +39,14 @@ This is all you need to support row versioning with SQLite, including support fo
 See [Native database-generated concurrency tokens](https://learn.microsoft.com/en-us/ef/core/saving/concurrency?tabs=data-annotations#native-database-generated-concurrency-tokens);
 except now you can ignore the part that says it isn't supported with SQLite!
 
-The released binary NuGet packages and the .NET assemblies contained therein have the following properties:
+## Example
+
+See the Example project for a demonstration using .NET 9 & EF Core 9.
+
+# NuGet package
+
+The released [NuGet package](https://www.nuget.org/packages/Dorssel.EntityFrameworkCore.Sqlite.Timestamp)
+and the .NET assemblies contained therein have the following properties:
 
 - [Strong Naming](https://learn.microsoft.com/en-us/dotnet/standard/library-guidance/strong-naming)
 - [SourceLink](https://learn.microsoft.com/en-us/dotnet/standard/library-guidance/sourcelink)
