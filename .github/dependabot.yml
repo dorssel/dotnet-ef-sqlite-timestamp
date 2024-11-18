@@ -17,17 +17,11 @@ updates:
     schedule:
       interval: 'daily'
   - package-ecosystem: 'nuget'
-    directory: '/SqliteTimestamp'
+    directory: '/'
     schedule:
       interval: 'daily'
     ignore:
       - dependency-name: 'Microsoft.EntityFrameworkCore.Sqlite'
-  - package-ecosystem: 'nuget'
-    directories:
-      - '/Example'
-      - '/UnitTests'
-    schedule:
-      interval: 'daily'
     groups:
       mstest:
         patterns:
