@@ -7,11 +7,9 @@ SPDX-License-Identifier: MIT
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0</TargetFrameworks>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>Dorssel.EntityFrameworkCore</RootNamespace>
     <AssemblyName>Dorssel.EntityFrameworkCore.Sqlite.Timestamp</AssemblyName>
-
-    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
 
     <IsPackable>true</IsPackable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -25,18 +23,14 @@ SPDX-License-Identifier: MIT
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitVersion.MsBuild" Version="6.0.5" PrivateAssets="all" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" VersionOverride="8.0.0" />
   </ItemGroup>
 
   <!-- Updates for transitive packages with vulnerabilities. -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="9.0.0" PrivateAssets="all" />
-    <PackageReference Include="System.Drawing.Common" Version="9.0.0" PrivateAssets="all" />
-    <PackageReference Include="System.Text.Json" Version="9.0.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" VersionOverride="9.0.0" PrivateAssets="all" />
+    <PackageReference Include="System.Drawing.Common" VersionOverride="9.0.0" PrivateAssets="all" />
+    <PackageReference Include="System.Text.Json" VersionOverride="9.0.0" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>

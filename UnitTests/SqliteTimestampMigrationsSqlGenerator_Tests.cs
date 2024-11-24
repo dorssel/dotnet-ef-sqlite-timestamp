@@ -157,6 +157,29 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
     }
 
     [TestMethod]
+    public void SqliteTimestampMigrationsSqlGenerator_OtherOperation()
+    {
+        using var db = new MemoryDbContext();
+        var generator = db.GetService<IMigrationsSqlGenerator>();
+        var designTimeModel = db.GetService<IDesignTimeModel>();
+        var operations = new List<MigrationOperation>
+        {
+            new DeleteDataOperation()
+            {
+                Table = MemoryDbContext.TestTableName,
+                KeyColumns = [MemoryDbContext.IdName],
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+                KeyValues = new object[,] { { 1 } },
+#pragma warning restore CA1814 // Prefer jagged arrays over multidimensional
+            }
+        };
+
+        var result = generator.Generate(operations, designTimeModel.Model);
+
+        Assert.IsFalse(result.Any(c => c.CommandText.Contains("TRIGGER")));
+    }
+
+    [TestMethod]
     public void SqliteTimestampMigrationsSqlGenerator_NullModelNoThrow()
     {
         using var db = new MemoryDbContext();
