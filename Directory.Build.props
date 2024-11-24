@@ -7,8 +7,11 @@ SPDX-License-Identifier: MIT
 <Project>
 
   <PropertyGroup>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' != 'true'">false</ContinuousIntegrationBuild>
+
     <!-- Use the latest .NET SDK -->
-    <TargetFrameworks>net9.0</TargetFrameworks>
+    <MainTargetFramework>net9.0</MainTargetFramework>
 
     <!-- Use the latest C# Language standard -->
     <LangVersion>13.0</LangVersion>
@@ -31,15 +34,11 @@ SPDX-License-Identifier: MIT
     <IsPublishable>false</IsPublishable>
     <IsTrimmable>true</IsTrimmable>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\strongname.snk</AssemblyOriginatorKeyFile>
-    <!--
-    See https://github.com/dotnet/roslyn/issues/41640
-    -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <!-- Assembly metadata -->
     <Product>dotnet-ef-sqlite-timestamp</Product>
     <Company>Frans van Dorsselaer</Company>
-    <Copyright>Copyright (C) $([System.DateTime]::UtcNow.ToString("yyyy"))  $(Company)</Copyright>
 
     <!-- NuGet metadata -->
     <Title>$(Product)</Title>
@@ -48,11 +47,19 @@ SPDX-License-Identifier: MIT
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <UseFullSemVerForNuGet>false</UseFullSemVerForNuGet>
-    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <Target Name="SetCopyright" AfterTargets="GetVersion">
+    <PropertyGroup>
+      <!-- For deterministic builds, use the commit year as the copyright year. -->
+      <CopyrightYear Condition="$(ContinuousIntegrationBuild)">$([System.DateTime]::Parse($(GitVersion_CommitDate)).ToString("yyyy"))</CopyrightYear>
+      <CopyrightYear Condition="!$(ContinuousIntegrationBuild)">$([System.DateTime]::UtcNow.ToString("yyyy"))</CopyrightYear>
+      <Copyright>Copyright (C) $(CopyrightYear)  $(Company)</Copyright>
+    </PropertyGroup>
+  </Target>
 
   <Target Name="SetPackageVersion" AfterTargets="GetVersion">
     <PropertyGroup>

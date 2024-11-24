@@ -2,5 +2,5 @@
 //
 // SPDX-License-Identifier: MIT
 
-[assembly: CLSCompliant(false)]
+[assembly: Parallelize(Scope = ExecutionScope.MethodLevel)]
 [assembly: DiscoverInternals]
