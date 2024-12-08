@@ -21,5 +21,9 @@ dep5   text
 *.sln      text
 *.csproj   text
 *.cs       text eol=crlf
+*.razor    text eol=crlf
 *.props    text
+*.targets  text
 *.xml      text
+
+*.snk   binary
