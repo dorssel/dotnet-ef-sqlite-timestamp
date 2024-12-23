@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 SPDX-FileCopyrightText: 2024 Frans van Dorsselaer
 
@@ -10,11 +10,6 @@ SPDX-License-Identifier: MIT
     <TargetFramework>$(MainTargetFramework)</TargetFramework>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <SignAssembly>True</SignAssembly>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <!-- Updates to transitive MSTest.Sdk dependencies -->
-    <MicrosoftNETTestSdkVersion>17.12.0</MicrosoftNETTestSdkVersion>
   </PropertyGroup>
 
   <ItemGroup>
