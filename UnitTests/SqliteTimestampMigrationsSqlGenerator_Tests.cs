@@ -185,7 +185,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
         using var db = new MemoryDbContext();
         var generator = db.GetService<IMigrationsSqlGenerator>();
 
-        _ = generator.Generate([]);
+        generator.Generate([]);
     }
 
     [TestMethod]
@@ -199,9 +199,9 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
             new AlterTableOperation() { Name = MemoryDbContext.TestTableName }
         };
 
-        _ = Assert.ThrowsException<InvalidOperationException>(() =>
+        Assert.ThrowsException<InvalidOperationException>(() =>
         {
-            _ = generator.Generate(operations, designTimeModel.Model);
+            generator.Generate(operations, designTimeModel.Model);
         });
     }
 }

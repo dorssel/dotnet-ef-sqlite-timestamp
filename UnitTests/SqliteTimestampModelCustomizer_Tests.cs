@@ -35,7 +35,7 @@ sealed class SqliteTimestampModelCustomizer_Tests
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            _ = optionsBuilder
+            optionsBuilder
                 .UseInMemoryDatabase("Test")
                 .UseSqliteTimestamp();
         }
@@ -44,7 +44,7 @@ sealed class SqliteTimestampModelCustomizer_Tests
     [TestMethod]
     public void SqliteTimestampModelCustomizer_NonSqliteThrows()
     {
-        _ = Assert.ThrowsException<InvalidOperationException>(() =>
+        Assert.ThrowsException<InvalidOperationException>(() =>
         {
             using var db = new NonSqliteDbContext();
             _ = db.Model;

@@ -10,10 +10,10 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods",
-    Justification = "Allow auto-generated migrations to pass unmodified.", Scope = "namespaceanddescendants", Target = "~N:Example.Migrations")]
+    Justification = "Allow auto-generated migrations to pass unmodified.", Scope = "NamespaceAndDescendants", Target = "~N:Example.Migrations")]
 [assembly: SuppressMessage("Style", "IDE0161:Convert to file-scoped namespace",
-    Justification = "Allow auto-generated migrations to pass unmodified.", Scope = "namespaceanddescendants", Target = "~N:Example.Migrations")]
+    Justification = "Allow auto-generated migrations to pass unmodified.", Scope = "NamespaceAndDescendants", Target = "~N:Example.Migrations")]
 [assembly: SuppressMessage("Style", "IDE0058:Expression value is never used",
-    Justification = "Allow auto-generated migrations to pass unmodified.", Scope = "namespaceanddescendants", Target = "~N:Example.Migrations")]
+    Justification = "Allow auto-generated migrations to pass unmodified.", Scope = "NamespaceAndDescendants", Target = "~N:Example.Migrations")]
 [assembly: SuppressMessage("Maintainability", "CA1515:Consider making public types internal",
-    Justification = "Allow auto-generated migrations to pass unmodified.", Scope = "namespaceanddescendants", Target = "~N:Example.Migrations")]
+    Justification = "Allow auto-generated migrations to pass unmodified.", Scope = "NamespaceAndDescendants", Target = "~N:Example.Migrations")]

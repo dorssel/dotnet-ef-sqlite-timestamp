@@ -12,7 +12,7 @@ class MemoryDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        _ = optionsBuilder
+        optionsBuilder
             .UseSqlite("DataSource=:memory:")
             .UseSqliteTimestamp()
             .LogTo(Console.WriteLine);
@@ -20,15 +20,11 @@ class MemoryDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        _ = modelBuilder.Entity(TestTableName, b =>
+        modelBuilder.Entity(TestTableName, b =>
         {
-            _ = b.Property<long>(IdName)
-                    .ValueGeneratedOnAdd();
-
-            _ = b.Property<byte[]>(RowVersionName)
-                    .IsRowVersion();
-
-            _ = b.HasKey(IdName);
+            b.Property<long>(IdName).ValueGeneratedOnAdd();
+            b.Property<byte[]>(RowVersionName).IsRowVersion();
+            b.HasKey(IdName);
         });
     }
 }
