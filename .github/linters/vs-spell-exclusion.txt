@@ -1,0 +1,7 @@
+Codecov
+Dorssel
+dotnet
+Intelli
+singeleton
+sqlite
+rowid

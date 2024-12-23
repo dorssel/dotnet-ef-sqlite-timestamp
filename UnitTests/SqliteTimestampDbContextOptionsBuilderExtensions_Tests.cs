@@ -11,13 +11,13 @@ sealed class SqliteTimestampDbContextOptionsBuilderExtensions_Tests
     public void UseSqliteTimestamp()
     {
         var builder = new DbContextOptionsBuilder();
-        _ = builder.UseSqliteTimestamp();
+        builder.UseSqliteTimestamp();
     }
 
     [TestMethod]
     public void UseSqliteTimestamp_Generic()
     {
         var builder = new DbContextOptionsBuilder<DbContext>();
-        _ = builder.UseSqliteTimestamp();
+        builder.UseSqliteTimestamp();
     }
 }
