@@ -22,7 +22,7 @@ SPDX-License-Identifier: MIT
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" VersionOverride="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" VersionOverride="9.0.0" />
   </ItemGroup>
 
   <!-- Updates for transitive packages with vulnerabilities. -->
