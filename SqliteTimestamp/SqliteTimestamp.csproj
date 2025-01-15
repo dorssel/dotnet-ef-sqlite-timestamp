@@ -27,7 +27,7 @@ SPDX-License-Identifier: MIT
 
   <!-- Updates for transitive packages with vulnerabilities. -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" VersionOverride="9.0.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" VersionOverride="9.0.1" PrivateAssets="all" />
     <PackageReference Include="System.Drawing.Common" VersionOverride="9.0.0" PrivateAssets="all" />
     <PackageReference Include="System.Text.Json" VersionOverride="9.0.0" PrivateAssets="all" />
   </ItemGroup>
