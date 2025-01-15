@@ -22,6 +22,7 @@ updates:
       interval: 'daily'
     ignore:
       - dependency-name: 'Microsoft.EntityFrameworkCore.Sqlite'
+        update-types: ['version-update:semver-major']
     groups:
       mstest:
         patterns:
