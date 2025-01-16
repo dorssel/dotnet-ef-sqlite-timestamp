@@ -34,9 +34,8 @@ SPDX-License-Identifier: MIT
     <IsPackable>false</IsPackable>
     <IsPublishable>false</IsPublishable>
     <IsTrimmable>true</IsTrimmable>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\strongname.snk</AssemblyOriginatorKeyFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <!-- See: https://learn.microsoft.com/en-us/dotnet/standard/library-guidance/strong-naming#create-strong-named-net-libraries -->
-    <SignAssembly>false</SignAssembly>
 
     <!-- Assembly metadata -->
     <Product>dotnet-ef-sqlite-timestamp</Product>

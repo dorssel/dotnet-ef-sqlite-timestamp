@@ -48,6 +48,7 @@ See the Example project for a demonstration using .NET 9 & EF Core 9.
 The released [NuGet package](https://www.nuget.org/packages/Dorssel.EntityFrameworkCore.Sqlite.Timestamp)
 and the .NET assemblies contained therein have the following properties:
 
+- [Strong Naming](https://learn.microsoft.com/en-us/dotnet/standard/library-guidance/strong-naming)
 - [SourceLink](https://learn.microsoft.com/en-us/dotnet/standard/library-guidance/sourcelink)
 - [IntelliSense](https://learn.microsoft.com/en-us/visualstudio/ide/using-intellisense)
 - [Authenticode](https://learn.microsoft.com/en-us/windows/win32/seccrypto/time-stamping-authenticode-signatures#a-brief-introduction-to-authenticode)
