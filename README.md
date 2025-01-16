@@ -19,12 +19,34 @@ The implementation is for AnyCPU, and works on all platforms.
 
 # Usage
 
-Add a package reference to your project for [`Dorssel.EntityFrameworkCore.Sqlite.Timestamp`](https://www.nuget.org/packages/Dorssel.EntityFrameworkCore.Sqlite.Timestamp).
+Add a package reference to your project for
+[`Dorssel.EntityFrameworkCore.Sqlite.Timestamp`](https://www.nuget.org/packages/Dorssel.EntityFrameworkCore.Sqlite.Timestamp),
+next to an explicit reference to the required version of SQLite.
+
+For EF Core 8:
+
+```diff
+   <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.*" />
++  <PackageReference Include="Dorssel.EntityFrameworkCore.Sqlite.Timestamp" Version="*" />
+```
+
+For EF Core 9:
+
+```diff
+   <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.*" />
++  <PackageReference Include="Dorssel.EntityFrameworkCore.Sqlite.Timestamp" Version="*" />
+```
+
+> [!NOTE]
+> It is not recommended to solely rely on the transitive dependency on `Microsoft.EntityFrameworkCore.Sqlite`,
+> as that would use the version at the time `Dorssel.EntityFrameworkCore.Sqlite.Timestamp` was built
+> instead of the latest one. Therefore, always add an explicit package reference for `Microsoft.EntityFrameworkCore.Sqlite`
+> in your project as well.
 
 In your `DbContext` derived class modify the following:
 
 ```diff
-+using Dorssel.EntityFrameworkCore;
++  using Dorssel.EntityFrameworkCore;
 
    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
    {
