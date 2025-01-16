@@ -10,6 +10,7 @@ SPDX-License-Identifier: MIT
     <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>Dorssel.EntityFrameworkCore</RootNamespace>
     <AssemblyName>Dorssel.EntityFrameworkCore.Sqlite.Timestamp</AssemblyName>
+    <SignAssembly>true</SignAssembly>
 
     <IsPackable>true</IsPackable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -22,7 +23,7 @@ SPDX-License-Identifier: MIT
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Override to support EF 8 consumers of our package. -->
+    <!-- Override to also support EF Core 8 consumers of our package. -->
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" VersionOverride="8.0.12" />
   </ItemGroup>
 
