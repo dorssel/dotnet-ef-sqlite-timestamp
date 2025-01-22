@@ -1,8 +1,0 @@
-Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: dotnet-ef-sqlite-timestamp
-Upstream-Contact: Frans van Dorsselaer
-Source: https://github.com/dorssel/dotnet-ef-sqlite-timestamp
-
-Files: Example/Migrations/*
-Copyright: 2024 Frans van Dorsselaer
-License: MIT

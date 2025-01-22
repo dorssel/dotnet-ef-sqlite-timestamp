@@ -17,6 +17,7 @@ dep5   text
 *.json      text
 *.yml       text
 *.config    text
+*.toml      text
 
 *.sln      text
 *.csproj   text
