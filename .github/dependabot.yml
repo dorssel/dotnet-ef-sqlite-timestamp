@@ -23,10 +23,11 @@ updates:
     ignore:
       - dependency-name: 'Microsoft.EntityFrameworkCore.Sqlite'
         update-types: ['version-update:semver-major']
+      # These are bundeled (transitive) by MSTest.Sdk
+      - dependency-name: Microsoft.NET.Test.Sdk
+      - dependency-name: Microsoft.Testing.Extensions.CodeCoverage
+      - dependency-name: Microsoft.Testing.Extensions.TrxReport
     groups:
-      mstest:
-        patterns:
-          - 'MSTest.*'
       entity-framework:
         patterns:
           - 'Microsoft.EntityFrameworkCore*'
