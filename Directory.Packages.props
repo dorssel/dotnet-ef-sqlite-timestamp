@@ -11,8 +11,8 @@ SPDX-License-Identifier: MIT
     <!-- SqliteTimestamp -->
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.4" />
     <!-- unit tests -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.4" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.5" />
     <!-- Example -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5" />
   </ItemGroup>
 </Project>
