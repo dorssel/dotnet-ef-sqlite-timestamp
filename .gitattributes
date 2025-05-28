@@ -19,7 +19,7 @@ dep5   text
 *.config    text
 *.toml      text
 
-*.sln      text
+*.slnx     text
 *.csproj   text
 *.cs       text eol=crlf
 *.razor    text eol=crlf
