@@ -17,7 +17,7 @@ Extension for Entity Framework (EF) Core 8.0 (or higher) that adds support for S
 
 The implementation is for AnyCPU, and works on all platforms.
 
-# Usage
+## Usage
 
 Add a package reference to your project for
 [`Dorssel.EntityFrameworkCore.Sqlite.Timestamp`](https://www.nuget.org/packages/Dorssel.EntityFrameworkCore.Sqlite.Timestamp),
@@ -61,11 +61,11 @@ This is all you need to support row versioning with SQLite, including support fo
 See [Native database-generated concurrency tokens](https://learn.microsoft.com/en-us/ef/core/saving/concurrency?tabs=data-annotations#native-database-generated-concurrency-tokens);
 except now you can ignore the part that says it isn't supported with SQLite!
 
-## Example
+### Example
 
 See the Example project for a demonstration using .NET 9 & EF Core 9.
 
-# NuGet package
+## NuGet package
 
 The released [NuGet package](https://www.nuget.org/packages/Dorssel.EntityFrameworkCore.Sqlite.Timestamp)
 and the .NET assemblies contained therein have the following properties:
