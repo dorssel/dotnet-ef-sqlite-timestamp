@@ -12,6 +12,6 @@ sealed class AssemblyTests
     {
         var publicKeyToken = typeof(SqliteTimestampDbContextOptionsBuilderExtensions).Assembly.GetName().GetPublicKeyToken();
         Assert.IsNotNull(publicKeyToken);
-        Assert.IsTrue(publicKeyToken.Length > 0);
+        Assert.IsGreaterThan(0, publicKeyToken.Length);
     }
 }
