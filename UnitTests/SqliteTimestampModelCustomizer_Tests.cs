@@ -44,7 +44,7 @@ sealed class SqliteTimestampModelCustomizer_Tests
     [TestMethod]
     public void SqliteTimestampModelCustomizer_NonSqliteThrows()
     {
-        Assert.ThrowsException<InvalidOperationException>(() =>
+        Assert.ThrowsExactly<InvalidOperationException>(() =>
         {
             using var db = new NonSqliteDbContext();
             _ = db.Model;
