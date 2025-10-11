@@ -37,9 +37,6 @@ SPDX-License-Identifier: MIT
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\strongname.snk</AssemblyOriginatorKeyFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-    <!-- Bump MSTest.Sdk "transitive" dependencies (they are actually direct dependencies) -->
-    <MicrosoftNETTestSdkVersion>18.0.0</MicrosoftNETTestSdkVersion>
-
     <!-- Assembly metadata -->
     <Product>dotnet-ef-sqlite-timestamp</Product>
     <Company>Frans van Dorsselaer</Company>
