@@ -100,7 +100,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
         var designTimeModel = db.GetService<IDesignTimeModel>();
         var operations = new List<MigrationOperation>
         {
-            new AddColumnOperation() { Table = MemoryDbContext.TestTableName, Name = "NewColumn" }
+            new AddColumnOperation() { Table = MemoryDbContext.TestTableName, Name = "NewColumn", ClrType = typeof(int) }
         };
 
         var result = generator.Generate(operations, designTimeModel.Model);

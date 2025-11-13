@@ -9,10 +9,10 @@ SPDX-License-Identifier: MIT
     <!-- all -->
     <PackageVersion Include="Dorssel.GitVersion.MsBuild" Version="1.1.1" />
     <!-- SqliteTimestamp -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.9" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.0" />
     <!-- unit tests -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.9" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.0" />
     <!-- Example -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.9" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0" />
   </ItemGroup>
 </Project>
