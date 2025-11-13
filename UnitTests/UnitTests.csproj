@@ -10,6 +10,7 @@ SPDX-License-Identifier: MIT
     <TargetFramework>$(MainTargetFramework)</TargetFramework>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <NoWarn>$(NoWarn),IDE0053,IDE0058</NoWarn>
+    <IsTrimmable>false</IsTrimmable>
   </PropertyGroup>
 
   <ItemGroup>
