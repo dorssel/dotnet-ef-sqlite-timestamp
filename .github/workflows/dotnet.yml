@@ -60,7 +60,7 @@ jobs:
           dotnet pack --configuration Release --no-build
 
       - name: Upload Package Artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: nuget-package
           path: |
