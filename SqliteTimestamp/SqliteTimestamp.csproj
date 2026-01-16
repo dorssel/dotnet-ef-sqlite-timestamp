@@ -24,7 +24,7 @@ SPDX-License-Identifier: MIT
 
   <ItemGroup>
     <!-- Override to also support EF Core 8 consumers of our package. -->
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" VersionOverride="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" VersionOverride="8.0.23" />
   </ItemGroup>
 
 </Project>
