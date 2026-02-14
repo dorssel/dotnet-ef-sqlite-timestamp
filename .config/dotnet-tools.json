@@ -8,13 +8,6 @@
         "dotnet-ef"
       ],
       "rollForward": false
-    },
-    "trx2junit": {
-      "version": "2.1.0",
-      "commands": [
-        "trx2junit"
-      ],
-      "rollForward": false
     }
   }
 }
