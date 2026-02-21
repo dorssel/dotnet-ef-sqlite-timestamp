@@ -18,6 +18,8 @@ permissions:
   issues: read
   checks: write
   pull-requests: write
+  id-token: write
+  attestations: write
 
 jobs:
   build:
@@ -61,13 +63,20 @@ jobs:
           dotnet pack --configuration Release --no-build
 
       - name: Upload Package Artifact
+        id: upload
         uses: actions/upload-artifact@v6
         with:
-          name: nuget-package
+          name: artifacts
           path: |
             **/*.nupkg
             **/*.snupkg
             retention-days: 14
+
+      - name: Build Attestation
+        uses: actions/attest-build-provenance@v3
+        with:
+          subject-name: artifacts.zip
+          subject-digest: sha256:${{ steps.upload.outputs.artifact-digest }}
 
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
