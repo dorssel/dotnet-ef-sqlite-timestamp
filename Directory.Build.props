@@ -41,6 +41,9 @@ SPDX-License-Identifier: MIT
     <Product>dotnet-ef-sqlite-timestamp</Product>
     <Company>Frans van Dorsselaer</Company>
 
+    <!-- Bump MSTest.Sdk "transitive" dependencies (they are actually direct dependencies) -->
+    <MicrosoftTestingExtensionsCodeCoverageVersion>18.5.2</MicrosoftTestingExtensionsCodeCoverageVersion>
+
     <!-- NuGet metadata -->
     <Title>$(Product)</Title>
     <Authors>$(Company)</Authors>
