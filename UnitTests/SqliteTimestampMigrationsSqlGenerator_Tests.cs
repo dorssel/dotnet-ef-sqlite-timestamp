@@ -25,7 +25,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
 
         var result = generator.Generate(operations, designTimeModel.Model);
 
-        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+        Assert.Contains(c => c.CommandText.Contains("TRIGGER"), result);
     }
 
     [TestMethod]
@@ -41,7 +41,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
 
         var result = generator.Generate(operations, designTimeModel.Model);
 
-        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+        Assert.Contains(c => c.CommandText.Contains("TRIGGER"), result);
     }
 
     [TestMethod]
@@ -57,7 +57,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
 
         var result = generator.Generate(operations, designTimeModel.Model);
 
-        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+        Assert.Contains(c => c.CommandText.Contains("TRIGGER"), result);
     }
 
     [TestMethod]
@@ -73,7 +73,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
 
         var result = generator.Generate(operations, designTimeModel.Model);
 
-        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+        Assert.Contains(c => c.CommandText.Contains("TRIGGER"), result);
     }
 
     [TestMethod]
@@ -89,7 +89,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
 
         var result = generator.Generate(operations, designTimeModel.Model);
 
-        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+        Assert.Contains(c => c.CommandText.Contains("TRIGGER"), result);
     }
 
     [TestMethod]
@@ -105,7 +105,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
 
         var result = generator.Generate(operations, designTimeModel.Model);
 
-        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+        Assert.Contains(c => c.CommandText.Contains("TRIGGER"), result);
     }
 
     [TestMethod]
@@ -121,7 +121,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
 
         var result = generator.Generate(operations, designTimeModel.Model);
 
-        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+        Assert.Contains(c => c.CommandText.Contains("TRIGGER"), result);
     }
 
     [TestMethod]
@@ -137,7 +137,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
 
         var result = generator.Generate(operations, designTimeModel.Model);
 
-        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+        Assert.Contains(c => c.CommandText.Contains("TRIGGER"), result);
     }
 
     [TestMethod]
@@ -153,7 +153,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
 
         var result = generator.Generate(operations, designTimeModel.Model);
 
-        Assert.IsTrue(result.Any(c => c.CommandText.Contains("TRIGGER")));
+        Assert.Contains(c => c.CommandText.Contains("TRIGGER"), result);
     }
 
     [TestMethod]
@@ -176,7 +176,7 @@ sealed class SqliteTimestampMigrationsSqlGenerator_Tests
 
         var result = generator.Generate(operations, designTimeModel.Model);
 
-        Assert.IsFalse(result.Any(c => c.CommandText.Contains("TRIGGER")));
+        Assert.DoesNotContain(c => c.CommandText.Contains("TRIGGER"), result);
     }
 
     [TestMethod]
