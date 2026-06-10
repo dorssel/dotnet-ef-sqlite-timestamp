@@ -37,12 +37,16 @@ SPDX-License-Identifier: MIT
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\strongname.snk</AssemblyOriginatorKeyFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
+    <!-- Bump MSTest.Sdk "transitive" dependencies (they are actually direct dependencies) -->
+    <MicrosoftTestingExtensionsCodeCoverageVersion>18.8.0</MicrosoftTestingExtensionsCodeCoverageVersion>
+
+    <!-- Deterministic builds -->
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <RestoreLockedMode Condition="$(ContinuousIntegrationBuild)">true</RestoreLockedMode>
+
     <!-- Assembly metadata -->
     <Product>dotnet-ef-sqlite-timestamp</Product>
     <Company>Frans van Dorsselaer</Company>
-
-    <!-- Bump MSTest.Sdk "transitive" dependencies (they are actually direct dependencies) -->
-    <MicrosoftTestingExtensionsCodeCoverageVersion>18.6.2</MicrosoftTestingExtensionsCodeCoverageVersion>
 
     <!-- NuGet metadata -->
     <Title>$(Product)</Title>
