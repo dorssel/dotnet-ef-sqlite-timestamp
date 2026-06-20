@@ -9,8 +9,6 @@
 .gitignore       text
 .editorconfig    text
 
-dep5   text
-
 *.txt       text
 *.md        text
 *.license   text
@@ -28,3 +26,6 @@ dep5   text
 *.xml      text
 
 *.snk   binary
+
+dep5                text
+packages.lock.json  text linguist-generated
