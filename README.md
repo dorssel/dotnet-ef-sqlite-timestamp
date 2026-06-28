@@ -8,6 +8,7 @@ SPDX-License-Identifier: MIT
 
 [![Codecov](https://codecov.io/gh/dorssel/dotnet-ef-sqlite-timestamp/branch/main/graph/badge.svg?token=zsbTiXoisQ)](https://codecov.io/gh/dorssel/dotnet-ef-sqlite-timestamp)
 [![REUSE status](https://api.reuse.software/badge/github.com/dorssel/dotnet-ef-sqlite-timestamp)](https://api.reuse.software/info/github.com/dorssel/dotnet-ef-sqlite-timestamp)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/dorssel/dotnet-ef-sqlite-timestamp/badge)](https://scorecard.dev/viewer/?uri=github.com/dorssel/dotnet-ef-sqlite-timestamp)
 [![NuGet](https://img.shields.io/nuget/v/Dorssel.EntityFrameworkCore.Sqlite.Timestamp?logo=nuget)](https://www.nuget.org/packages/Dorssel.EntityFrameworkCore.Sqlite.Timestamp)
 
 Extension for Entity Framework (EF) Core (version 8.0 or higher) that adds support for SQLite row versioning (`[Timestamp]` attribute).
