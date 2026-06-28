@@ -29,3 +29,5 @@
 
 dep5                text
 packages.lock.json  text linguist-generated
+
+CODEOWNERS  text
