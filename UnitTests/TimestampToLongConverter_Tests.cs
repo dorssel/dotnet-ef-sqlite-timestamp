@@ -30,6 +30,6 @@ sealed class TimestampToLongConverter_Tests
     public void TimestampToLongConverter_ConvertFromProviderTyped(long expectedLong, byte[] expectedTimestamp)
     {
         var result = TimestampToLongConverter.Singleton.ConvertFromProviderTyped(expectedLong);
-        CollectionAssert.AreEqual(expectedTimestamp, result);
+        Assert.AreSequenceEqual(expectedTimestamp, result);
     }
 }
