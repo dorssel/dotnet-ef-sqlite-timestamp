@@ -8,6 +8,7 @@ SPDX-License-Identifier: MIT
     <File Path=".config/dotnet-tools.json" />
     <File Path=".editorconfig" />
     <File Path=".gitattributes" />
+    <File Path=".github/codecov.yml" />
     <File Path=".gitignore" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
