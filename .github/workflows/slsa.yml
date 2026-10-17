@@ -45,7 +45,7 @@ jobs:
       - name: Fail if provenance already exists
         run: |
           shopt -s nullglob
-          PROVENANCE=(release-artifacts/*.intoto.jsonnl)
+          PROVENANCE=(release-artifacts/*.intoto.jsonl)
           if [ ${#PROVENANCE[@]} -gt 0 ]; then
             echo "Provenance file(s) already exist."
             exit 1
@@ -56,6 +56,7 @@ jobs:
         shell: bash
         run: |
           cd release-artifacts
+          shopt -s dotglob
           ASSETS=(*)
           echo "hashes=$(sha256sum -- "${ASSETS[@]}" | base64 -w0)" >> "$GITHUB_OUTPUT"
 
