@@ -29,7 +29,8 @@ Forcing non-CI or dirty builds into a prerelease state is desired, safe behavior
 ## 3. Nerdbank.GitVersioning (NBGV) Context Awareness
 
 * **Dual-Layer Versioning:**
-Recognize that `version.json` dictates the base versioning hierarchy, while the `.csproj` file modifies the final prerelease classification based on environmental state.
+Recognize that `version.json` dictates the base versioning hierarchy, while the `.csproj` file modifies the final
+prerelease classification based on environmental state.
 
 * **Empty Suffix Handling:**
 If an MSBuild condition evaluates or clears a version property to achieve a stable NuGet package output on `main`,
