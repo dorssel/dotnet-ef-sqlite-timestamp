@@ -4,19 +4,19 @@
     "net8.0": {
       "Microsoft.EntityFrameworkCore.Sqlite": {
         "type": "Direct",
-        "requested": "[8.0.32, )",
-        "resolved": "8.0.32",
-        "contentHash": "h2NBc03xc2b4qj6wcs2ucjaT3dDpVokZaGwiTJNI0At2oSYav0Di6taSCAWINzhk4xR4zFGuNCga96KcXaFprQ==",
+        "requested": "[8.0.33, )",
+        "resolved": "8.0.33",
+        "contentHash": "AnusWI9WBnMW8ksFj5dkY8m08UX61JGUXI5TtlWm00c83WfpCBrDFLLRONEmNL924RGZsuRy6g435igXTqqONQ==",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Sqlite.Core": "8.0.32",
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": "8.0.33",
           "SQLitePCLRaw.bundle_e_sqlite3": "2.1.13"
         }
       },
       "Microsoft.NET.ILLink.Tasks": {
         "type": "Direct",
-        "requested": "[8.0.32, )",
-        "resolved": "8.0.32",
-        "contentHash": "FQXkG87JK9+SEbF6vRcWmevk0Pjqgehhz+9e1hHATDh7U8EvgmVQQcEUJTXj1IKi8VqLrdi/c1QHOpVjZcd9ng=="
+        "requested": "[8.0.33, )",
+        "resolved": "8.0.33",
+        "contentHash": "dG9SM/0/zOTIE1UvSrveD1iDyEJjThqPqSnreExgqQWSoGWvze0esDi0faRk3C44IO1kqCeEX6AeCxWmBOppfw=="
       },
       "Nerdbank.GitVersioning": {
         "type": "Direct",
@@ -26,49 +26,49 @@
       },
       "Microsoft.Data.Sqlite.Core": {
         "type": "Transitive",
-        "resolved": "8.0.32",
-        "contentHash": "SCH/A3+jFleRu7s+hpihD799znF59JMUhFpvSQ5yep2K3GOftEzLzhrPUUrTiVUqK6VvzhFDeZOxmZEEqybwaQ==",
+        "resolved": "8.0.33",
+        "contentHash": "zdi62TB/DL6Fewr/Y/Ke9EEavaJxuMD0wKPUiykqOkUnmuuM511cUAEKj+YGswCFhhpL8FCzBFqRguBY2Wltgg==",
         "dependencies": {
           "SQLitePCLRaw.core": "2.1.13"
         }
       },
       "Microsoft.EntityFrameworkCore": {
         "type": "Transitive",
-        "resolved": "8.0.32",
-        "contentHash": "aDxpvxvT0pjWwzg62OlNBqTMahKVMqxCFYbaFlf9gfJfzXOKiA9Hp2dyRR9LulQLixDoITCtc/NouAWajj2C9w==",
+        "resolved": "8.0.33",
+        "contentHash": "484sjwPQsnTbRhfhkZyE3NwW8MdMB0zaktDlZTzbWwuVHM5ZL6LktMIkxdFEx6zChKrFb8MPeN46vJ5fJ225Qw==",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.32",
-          "Microsoft.EntityFrameworkCore.Analyzers": "8.0.32",
+          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.33",
+          "Microsoft.EntityFrameworkCore.Analyzers": "8.0.33",
           "Microsoft.Extensions.Caching.Memory": "8.0.1",
           "Microsoft.Extensions.Logging": "8.0.1"
         }
       },
       "Microsoft.EntityFrameworkCore.Abstractions": {
         "type": "Transitive",
-        "resolved": "8.0.32",
-        "contentHash": "QDeEuphXDN8Tfzz8vzr7xBPfNrUIdmTsHBr9CLmqsVRil4cVe5crbhLU97pbcRquwpKVoAdh444dmUXGRphImQ=="
+        "resolved": "8.0.33",
+        "contentHash": "RYv2sksae7RCzaVMw9Ik8dWY51gjAv9UNYXTxHqupQKhJAq2v4eUgxCm8HNJUuszK+Wpl/n2WOooncuaNVHzzg=="
       },
       "Microsoft.EntityFrameworkCore.Analyzers": {
         "type": "Transitive",
-        "resolved": "8.0.32",
-        "contentHash": "3G3shCnyAQgqrDUzbmTFBUYAQItI2vjGqh1sfQNu9t64rLvpgw9lDrcfQau/bOjnM+LZxIcRuHY0ZADbToh3aQ=="
+        "resolved": "8.0.33",
+        "contentHash": "oIkgTUSovwFwv7qwIxce6x/+9yZThtdG0cRHjXlyV2i5mZR8gIL7uDzziIUV4Ju9FFbjUpVK2477+wpWQli9wA=="
       },
       "Microsoft.EntityFrameworkCore.Relational": {
         "type": "Transitive",
-        "resolved": "8.0.32",
-        "contentHash": "v8vrj9XT5rrav3I+vltFTdxpH3PnpgVs9L5ctUkyuoYi+5nuNIKCC9XrElGmz74fqESnUFZCN7wkvWPjvHCPcw==",
+        "resolved": "8.0.33",
+        "contentHash": "zF4o7EUbL/ukAZNOddynhC3LDP96/jZ9ijlfC7A/jhJ7lBtAGimdDmH+O3aj0qZKqdBCxsVUTv8jTCd0eR12+Q==",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "8.0.32",
+          "Microsoft.EntityFrameworkCore": "8.0.33",
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0"
         }
       },
       "Microsoft.EntityFrameworkCore.Sqlite.Core": {
         "type": "Transitive",
-        "resolved": "8.0.32",
-        "contentHash": "uq2uLmEJXwCuAszrZIEKtV1nJvfvojXGGc/7o1XQ1SY4Hx5ajT91PfAWoRVgJlKHD7mBw3ClTpjDLSklDrjYkA==",
+        "resolved": "8.0.33",
+        "contentHash": "M2zaYH/plmTxw8SczyARj6Cyom8NikTy/qGp1VLYw9oNARR2TPhFZI1b4G2KQO/HnYy3iAOhBaR/RsczEq1Ljw==",
         "dependencies": {
-          "Microsoft.Data.Sqlite.Core": "8.0.32",
-          "Microsoft.EntityFrameworkCore.Relational": "8.0.32",
+          "Microsoft.Data.Sqlite.Core": "8.0.33",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.33",
           "Microsoft.Extensions.DependencyModel": "8.0.2"
         }
       },
