@@ -11,7 +11,7 @@ SPDX-License-Identifier: MIT
     <!-- SqliteTimestamp -->
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.14" />
     <!-- unit tests -->
-    <PackageVersion Include="JunitXml.TestLogger" Version="8.0.0" />
+    <PackageVersion Include="JunitXml.TestLogger" Version="8.1.0" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.14" />
     <!-- fuzzing tests -->
     <PackageVersion Include="FsCheck" Version="3.6.0" />
