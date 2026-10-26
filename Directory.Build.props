@@ -40,6 +40,7 @@ SPDX-License-Identifier: MIT
     <!-- Nerdbank.GitVersioning -->
     <GitVersionBaseDirectory>$(MSBuildThisFileDirectory)</GitVersionBaseDirectory>
     <PublicRelease Condition="!$(ContinuousIntegrationBuild)">false</PublicRelease>
+    <PublicRelease Condition="'$(GITHUB_REF_NAME)' != 'main'">false</PublicRelease>
     <PublicRelease Condition="'$(Configuration)' != 'Release'">false</PublicRelease>
 
     <!-- Bump MSTest.Sdk "transitive" dependencies (they are actually direct dependencies) -->
@@ -76,6 +77,7 @@ SPDX-License-Identifier: MIT
 
   <ItemGroup>
     <PrereleaseIdentifier Condition="!$(ContinuousIntegrationBuild)" Include="private" />
+    <PrereleaseIdentifier Condition="'$(GITHUB_REF_NAME)' != 'main'" Include="dev" />
     <PrereleaseIdentifier Condition="'$(Configuration)' != 'Release'" Include="debug" />
   </ItemGroup>
 
