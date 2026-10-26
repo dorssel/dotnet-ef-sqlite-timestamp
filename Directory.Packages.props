@@ -9,14 +9,14 @@ SPDX-License-Identifier: MIT
     <!-- all -->
     <PackageVersion Include="Nerdbank.GitVersioning" Version="3.10.94" />
     <!-- SqliteTimestamp -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.13" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.14" />
     <!-- unit tests -->
     <PackageVersion Include="JunitXml.TestLogger" Version="8.0.0" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.13" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.14" />
     <!-- fuzzing tests -->
     <PackageVersion Include="FsCheck" Version="3.6.0" />
     <!-- Example -->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.13" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.14" />
     <!-- Transitive pins for vulnerable/deprecated packages -->
     <!-- none at this time -->
   </ItemGroup>
