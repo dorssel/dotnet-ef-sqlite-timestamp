@@ -64,14 +64,15 @@ jobs:
 
       - name: Package
         run: |
-          dotnet pack --configuration Release --no-build
+          dotnet pack --configuration Release --no-build \
+            --property:NBGV_SetCloudBuildVersionVars=false
 
       - name: Upload Package Artifact
         id: upload-nupkg
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           archive: false
-          path: SqliteTimestamp/bin/Release/Dorssel.EntityFrameworkCore.Sqlite.Timestamp.${{ env.GitVersion_MajorMinorPatch }}.nupkg
+          path: SqliteTimestamp/bin/Release/Dorssel.EntityFrameworkCore.Sqlite.Timestamp.${{ env.NBGV_NuGetPackageVersion }}.nupkg
           retention-days: 14
 
       - name: Upload Symbol Package Artifact
@@ -79,21 +80,21 @@ jobs:
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           archive: false
-          path: SqliteTimestamp/bin/Release/Dorssel.EntityFrameworkCore.Sqlite.Timestamp.${{ env.GitVersion_MajorMinorPatch }}.snupkg
+          path: SqliteTimestamp/bin/Release/Dorssel.EntityFrameworkCore.Sqlite.Timestamp.${{ env.NBGV_NuGetPackageVersion }}.snupkg
           retention-days: 14
 
       - name: Build Package Attestation
         if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
         with:
-          subject-name: Dorssel.EntityFrameworkCore.Sqlite.Timestamp.${{ env.GitVersion_MajorMinorPatch }}.nupkg
+          subject-name: Dorssel.EntityFrameworkCore.Sqlite.Timestamp.${{ env.NBGV_NuGetPackageVersion }}.nupkg
           subject-digest: sha256:${{ steps.upload-nupkg.outputs.artifact-digest }}
 
       - name: Build Symbol Package Attestation
         if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
         with:
-          subject-name: Dorssel.EntityFrameworkCore.Sqlite.Timestamp.${{ env.GitVersion_MajorMinorPatch }}.snupkg
+          subject-name: Dorssel.EntityFrameworkCore.Sqlite.Timestamp.${{ env.NBGV_NuGetPackageVersion }}.snupkg
           subject-digest: sha256:${{ steps.upload-snupkg.outputs.artifact-digest }}
 
       - name: Upload test results to Codecov
