@@ -42,6 +42,7 @@ SPDX-License-Identifier: MIT
     <PublicRelease Condition="!$(ContinuousIntegrationBuild)">false</PublicRelease>
     <PublicRelease Condition="'$(GITHUB_REF_NAME)' != 'main'">false</PublicRelease>
     <PublicRelease Condition="'$(Configuration)' != 'Release'">false</PublicRelease>
+    <NBGV_SetCloudBuildVersionVars Condition="'$(NBGV_SetCloudBuildVersionVars)' != 'true'">false</NBGV_SetCloudBuildVersionVars>
 
     <!-- Bump MSTest.Sdk "transitive" dependencies (they are actually direct dependencies) -->
     <!-- none at this time -->

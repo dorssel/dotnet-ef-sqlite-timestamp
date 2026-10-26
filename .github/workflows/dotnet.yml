@@ -54,7 +54,8 @@ jobs:
 
       - name: Build
         run: |
-          dotnet build --configuration Release --no-restore --binaryLogger:build.binlog
+          dotnet build --configuration Release --no-restore --binaryLogger:build.binlog \
+            --property:NBGV_SetCloudBuildVersionVars=true
 
       - name: Test
         run: |
@@ -64,8 +65,7 @@ jobs:
 
       - name: Package
         run: |
-          dotnet pack --configuration Release --no-build \
-            --property:NBGV_SetCloudBuildVersionVars=false
+          dotnet pack --configuration Release --no-build
 
       - name: Upload Package Artifact
         id: upload-nupkg
