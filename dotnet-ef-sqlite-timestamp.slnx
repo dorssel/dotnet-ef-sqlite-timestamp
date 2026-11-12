@@ -22,4 +22,5 @@ SPDX-License-Identifier: MIT
   <Project Path="FuzzingTests/FuzzingTests.csproj" />
   <Project Path="SqliteTimestamp/SqliteTimestamp.csproj" />
   <Project Path="UnitTests/UnitTests.csproj" />
+  <Project Path="UnitTestsEF8/UnitTestsEF8.csproj" />
 </Solution>

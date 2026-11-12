@@ -17,3 +17,5 @@ using System.Diagnostics.CodeAnalysis;
     Justification = "Allow auto-generated migrations to pass unmodified.", Scope = "NamespaceAndDescendants", Target = "~N:Example.Migrations")]
 [assembly: SuppressMessage("Maintainability", "CA1515:Consider making public types internal",
     Justification = "Allow auto-generated migrations to pass unmodified.", Scope = "NamespaceAndDescendants", Target = "~N:Example.Migrations")]
+[assembly: SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores",
+    Justification = "Allow auto-generated migrations to pass unmodified.", Scope = "NamespaceAndDescendants", Target = "~N:Example.Migrations")]
