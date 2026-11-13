@@ -2,7 +2,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
@@ -80,7 +79,7 @@ public class SqliteTimestampMigrationsSqlGenerator(MigrationsSqlGeneratorDepende
             //
             var columnNames = model.GetEntityTypes().SelectMany(et => et.GetProperties())
                 .Where(p => p.IsConcurrencyToken && (p.ValueGenerated == ValueGenerated.OnAddOrUpdate))
-                .SelectMany(p => p.GetTableColumnMappings()).Select(cm => cm.Column)
+                .SelectMany(p => p.GetTableColumnMappingsSafe()).Select(cm => cm.Column)
                 .Where(c => c.Table.Name == affected.TableName && c.Table.Schema == affected.Schema)
                 .Select(c => c.Name).Distinct().ToArray();
             switch (columnNames.Length)

@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2026 Frans van Dorsselaer
+#
+# SPDX-License-Identifier: MIT
+
+root = false
+
+# EF Core 11 generates these without BOM.
+[*.cs]
+charset = utf-8

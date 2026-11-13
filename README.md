@@ -21,24 +21,10 @@ Add a package reference to your project for
 [`Dorssel.EntityFrameworkCore.Sqlite.Timestamp`](https://www.nuget.org/packages/Dorssel.EntityFrameworkCore.Sqlite.Timestamp),
 next to an explicit reference to the required version of SQLite.
 
-For EF Core 8:
+For EF Core X (with X = 8, 9, 10, or 11):
 
 ```diff
-   <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.*" />
-+  <PackageReference Include="Dorssel.EntityFrameworkCore.Sqlite.Timestamp" Version="*" />
-```
-
-For EF Core 9:
-
-```diff
-   <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.*" />
-+  <PackageReference Include="Dorssel.EntityFrameworkCore.Sqlite.Timestamp" Version="*" />
-```
-
-For EF Core 10:
-
-```diff
-   <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.*" />
+   <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="X.*" />
 +  <PackageReference Include="Dorssel.EntityFrameworkCore.Sqlite.Timestamp" Version="*" />
 ```
 
@@ -68,7 +54,7 @@ except now you can ignore the part that says it isn't supported with SQLite!
 
 ### Example
 
-See the Example project for a demonstration using .NET 10 & EF Core 10.
+See the Example project for a demonstration using .NET 11 & EF Core 11.
 
 ## NuGet package
 
