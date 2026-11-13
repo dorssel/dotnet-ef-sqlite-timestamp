@@ -52,10 +52,15 @@ jobs:
           dotnet tool restore
           dotnet restore
 
+      - name: GitVersioning
+        run: |
+          dotnet build --configuration Release --no-restore \
+            --property:NBGV_SetCloudBuildVersionVars=true \
+            --target:SqliteTimestamp:GetBuildVersion,SqliteTimestamp:SetCloudBuildVersionVars
+
       - name: Build
         run: |
-          dotnet build --configuration Release --no-restore --binaryLogger:build.binlog \
-            --property:NBGV_SetCloudBuildVersionVars=true
+          dotnet build --configuration Release --no-restore --binaryLogger:build.binlog
 
       - name: Test
         run: |
