@@ -4,17 +4,27 @@ SPDX-FileCopyrightText: 2026 Frans van Dorsselaer
 
 SPDX-License-Identifier: MIT
 -->
-<Project>
+<Project Sdk="MSTest.Sdk">
 
-  <Import Project="../UnitTests/UnitTests.csproj" />
+  <PropertyGroup>
+    <TargetFramework>$(MainTargetFramework)</TargetFramework>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <NoWarn>$(NoWarn),IDE0053,IDE0058</NoWarn>
+    <IsTrimmable>false</IsTrimmable>
+  </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Update="Microsoft.EntityFrameworkCore.InMemory" VersionOverride="$(SqliteEF8)" />
-    <PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite" VersionOverride="$(SqliteEF8)" />
+    <PackageReference Include="JunitXml.TestLogger" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" VersionOverride="$(SqliteEF8)" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" VersionOverride="$(SqliteEF8)" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="../UnitTests/*.cs" />
+    <ProjectReference Include="..\SqliteTimestamp\SqliteTimestamp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="../UnitTests/*.cs" Visible="false" />
   </ItemGroup>
 
 </Project>
